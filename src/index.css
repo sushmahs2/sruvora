@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------
+   Theme tokens
+   Light beige is the default surface. Anything wrapped in `.on-dark`
+   (header, hero, footer, green banners) re-maps the same tokens, so
+   components never need separate light/dark class names.
+------------------------------------------------------------------- */
+:root {
+  --bg: 250 246 240;          /* #FAF6F0 light beige */
+  --bg-alt: 243 236 221;      /* #F3ECDD */
+  --surface: 255 253 249;
+  --surface-a: 1;
+  --ink: 26 26 26;            /* #1A1A1A */
+  --ink-soft: 58 58 54;
+  --ink-mute: 92 92 85;
+  --line: 27 67 50;           /* forest green hairlines */
+  --accent: 27 67 50;         /* forest green icons / labels */
+  --btn-bg: 27 67 50;         /* #1B4332 */
+  --btn-fg: 255 255 255;
+  --btn-hover: 22 56 41;
+  --o-border: 27 67 50;
+  --o-fg: 27 67 50;
+  --o-hover-bg: 27 67 50;
+  --o-hover-fg: 255 255 255;
+}
+
+.on-dark {
+  --bg: 27 67 50;
+  --bg-alt: 22 56 41;
+  --surface: 255 255 255;
+  --surface-a: 0.06;
+  --ink: 255 255 255;         /* crisp white */
+  --ink-soft: 234 228 214;
+  --ink-mute: 196 188 170;
+  --line: 212 175 55;         /* gold hairlines */
+  --accent: 212 175 55;       /* #D4AF37 */
+  --btn-bg: 250 246 240;
+  --btn-fg: 27 67 50;
+  --btn-hover: 255 255 255;
+  --o-border: 255 255 255;
+  --o-fg: 255 255 255;
+  --o-hover-bg: 255 255 255;
+  --o-hover-fg: 27 67 50;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-page font-body text-ink antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5 {
+    @apply font-heading;
+    letter-spacing: -0.02em;
+  }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--accent));
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+}
+
+@layer components {
+  .section-label {
+    @apply flex items-center gap-2.5 font-body text-sm font-semibold text-accent;
+  }
+
+  .section-title {
+    @apply font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-ink leading-[1.12];
+  }
+
+  .section-subtitle {
+    @apply font-body text-base md:text-lg leading-relaxed text-ink-mute;
+  }
+
+  .btn-primary,
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2.5 rounded-full px-7 py-3.5 font-body text-sm font-semibold transition-colors duration-200 active:scale-[0.98];
+  }
+
+  .btn-primary {
+    @apply bg-btn text-btn-fg hover:bg-btn-hover;
+  }
+
+  .btn-outline {
+    border: 2px solid rgb(var(--o-border) / 0.75);
+    color: rgb(var(--o-fg));
+  }
+  .btn-outline:hover {
+    background-color: rgb(var(--o-hover-bg));
+    border-color: rgb(var(--o-hover-bg));
+    color: rgb(var(--o-hover-fg));
+  }
+
+  .card {
+    @apply rounded-3xl border border-line/25 shadow-card;
+    background-color: rgb(var(--surface) / var(--surface-a));
+  }
+
+  .pill {
+    @apply inline-flex items-center gap-1.5 rounded-full bg-forest-700 px-3.5 py-1.5 font-body text-xs font-semibold text-white;
+  }
+
+  .accent-line {
+    width: 56px;
+    height: 3px;
+    border-radius: 9999px;
+    background: rgb(var(--accent));
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #F3ECDD; }
+::-webkit-scrollbar-thumb { background: #1B4332; border-radius: 4px; }
