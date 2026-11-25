@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: #091710;
+    color: #f7f6f2;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: 'Playfair Display', Georgia, serif;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer components {
+  .gold-text {
+    @apply text-champagne-400;
+  }
+
+  .section-label {
+    @apply text-champagne-400 text-xs font-body font-semibold tracking-[0.28em] uppercase flex items-center gap-2.5;
+  }
+
+  .section-title {
+    @apply font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.15];
+  }
+
+  .section-subtitle {
+    @apply text-ivory-300 text-base md:text-lg leading-relaxed font-body font-light;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2.5 bg-champagne-500 hover:bg-champagne-400 text-forest-950 font-semibold px-7 py-3.5 text-sm tracking-wide transition-all duration-300 font-body shadow-lg shadow-champagne-500/20 active:scale-[0.98];
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 border border-champagne-500/80 text-champagne-400 hover:bg-champagne-500 hover:text-forest-950 font-semibold px-7 py-3.5 text-sm tracking-wide transition-all duration-300 font-body active:scale-[0.98];
+  }
+
+  .card-dark {
+    @apply bg-forest-950/80 border border-forest-800/60 shadow-xl;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #07160F;
+}
+::-webkit-scrollbar-thumb {
+  background: #C5A059;
+  border-radius: 3px;
+}
+
+/* Gold divider line */
+.gold-line {
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(90deg, #C5A059, #E5C158);
+}
