@@ -47,7 +47,7 @@ export default function ContactPage() {
     const body = encodeURIComponent(
       `Name: ${form.name}\nPhone: ${form.phone}\nEmail: ${form.email}\nService: ${form.service}\n\nProject Scope & Message:\n${form.message}`
     )
-    window.location.href = `mailto:sruvorainfratech@gmail.com?subject=${subject}&body=${body}`
+    window.location.href = `mailto:info@sruvora.com?subject=${subject}&body=${body}`
     setFormState('submitted-direct')
   }
 
@@ -155,7 +155,7 @@ export default function ContactPage() {
                       href="mailto:sruvorainfratech@gmail.com"
                       className="block text-ink-soft hover:text-accent text-sm font-body transition-colors break-all"
                     >
-                      sruvorainfratech@gmail.com
+                      info@sruvora.com
                     </a>
                   </div>
                 </div>
